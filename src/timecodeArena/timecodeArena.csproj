@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <!-- Global Properties -->
+  <PropertyGroup>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <LangVersion>10.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <!-- todo: toggle-able as build for tool and build for binary -->
+  </PropertyGroup>
+
+  <!-- Mode example -->
+  <!--
+  <PropertyGroup Condition="'$(BuildFlavor)' == 'Tool'">
+    <DefineConstants>$(DefineConstants);TOOL_BUILD</DefineConstants>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>tudor</ToolCommandName>
+    <PackageOutputPath>./Build/astool</PackageOutputPath>
+  </PropertyGroup>
+  -->
+
+
+  <!-- Resources -->
+  <ItemGroup>
+    <!--
+    <EmbeddedResource Include="Resources/default.tudor-config"
+                      LogicalName="Resource.Default.TudorConfig"
+                      />
+    -->
+  </ItemGroup>
+
+
+  <!-- Packages -->
+  <ItemGroup>
+    <!--
+    <PackageReference Include="DeepCopy"
+                      Version="1.0.3"
+                      />
+    -->
+  </ItemGroup>
+</Project>
