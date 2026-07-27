@@ -40,7 +40,7 @@ internal class Arena
 
 			else if (Operations.ContainsKey(keyword))
 			{
-				if (args.Count == 0)
+				if (args.Count() == 0)
 				{
 					Operations[keyword].Help.Show();
 				}
