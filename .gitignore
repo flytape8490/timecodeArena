@@ -105,7 +105,7 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
-# *.sublime-*
+*.sublime-workspace
 
 # Chutzpah Test files
 _Chutzpah*
