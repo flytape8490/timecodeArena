@@ -115,5 +115,5 @@ internal class TimeCode
         => ToString(':');
 
     internal string ToString(char delimiter)
-        => $"{Hours}{delimiter}{Minutes}{delimiter}{Seconds}{delimiter}{Frames}";
+        => $"{Hours:00}{delimiter}{Minutes:00}{delimiter}{Seconds:00}{delimiter}{Frames:00}";
 }
