@@ -70,6 +70,8 @@ internal class Arena
 		{
 			Console.WriteLine($"* {keyword}".ToUpper());
 		}
+
+		Console.WriteLine("\n* EXIT");
 	}
 
 	private static void HandleStatus(OperationStatus opStat)
