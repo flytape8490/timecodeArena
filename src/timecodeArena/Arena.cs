@@ -9,6 +9,8 @@ internal class Arena
 	internal Dictionary<string, TimeCode> Variables;
 	internal Dictionary<string, IOperation> Operations;
 	
+	private bool _IsRunning = true;
+	
 	internal Arena(Dictionary<string, IOperation> operations)
 	{
 		 Variables = new Dictionary<string, TimeCode>(StringComparer.OrdinalIgnoreCase);
@@ -18,7 +20,8 @@ internal class Arena
 	internal void Run()
 	{
 		Console.WriteLine("TimeCode Arena");
-		while (true)
+		
+		while (_IsRunning)
 		{
 			Console.Write("> ");
 			string input = Console.ReadLine()!.Trim();
@@ -58,8 +61,6 @@ internal class Arena
 		{
 			Console.WriteLine($"* {keyword}".ToUpper());
 		}
-
-		Console.WriteLine("\n* EXIT");
 	}
 
 	private static void HandleStatus(OperationStatus opStat)
@@ -87,5 +88,10 @@ internal class Arena
 		}
 
 		Console.WriteLine();
+	}
+
+	internal void Shutdown()
+	{
+		_IsRunning = false;
 	}
 }
