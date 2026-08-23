@@ -11,10 +11,10 @@ internal class SetVariable : IOperation
 
 	// prevent a new help object from being generated each time Help is accessed
 	private static OperationHelp _help = new OperationHelp(
-		name: nameof(SetVariable),
-		description: $"Sets a variable to a particular {nameof(TimeCode)} value.",
-		usage: $"SET [identifier] [timecode]",
-		remarks: $"An identifier must match the regex {_identifierPattern}"
+		name: nameof(SetVariable)
+		, description: $"Sets a variable to a particular {nameof(TimeCode)} value."
+		, usage: $"SET [identifier] [timecode]"
+		, remarks: $"An identifier must match the regex {_identifierPattern}"
 		);
 
 
