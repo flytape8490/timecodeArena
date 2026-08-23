@@ -57,7 +57,7 @@ internal class Arena
 
 			else
 			{
-				status = OperationStatus.InvalidResult($"Unknown operation: {keyword}");
+				status = OperationStatus.InvalidResult($"Unknown operation: {keyword} - Use 'list' to show available commands");
 			}
 
 			HandleStatus(status);
@@ -70,6 +70,8 @@ internal class Arena
 		{
 			Console.WriteLine($"* {keyword}".ToUpper());
 		}
+
+		Console.WriteLine("\n* EXIT");
 	}
 
 	private static void HandleStatus(OperationStatus opStat)
