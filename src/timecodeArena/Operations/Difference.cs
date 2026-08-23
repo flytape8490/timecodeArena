@@ -8,12 +8,12 @@ internal class Difference : IOperation
 	public string Keyword => "delta";
 	public OperationHelp Help => _help;
 
-	private static OperationHelp _help = new OperationHelp(
-		name: nameof(Difference),
-		description: $"Calculates the difference between two {nameof(TimeCode)} values.",
-		usage: "DELTA [timecode a] [timecode b]",
-		remarks: "the timecode values can also be an identifier in the variable table."
-		);
+	internal static OperationHelp _help = new OperationHelp(
+		name: nameof(Difference)
+		, description: $"Calculates the difference between two {nameof(TimeCode)} values."
+		, usage: "DELTA [timecode a] [timecode b]"
+		, remarks: "The timecode values can also be an identifier in the variable table."
+	);
 
 	public OperationStatus Action(Arena arena, IList<string> args)
 	{

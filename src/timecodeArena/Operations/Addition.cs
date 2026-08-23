@@ -5,15 +5,15 @@ namespace timecodeArena.Operations;
 
 internal class Addition : IOperation
 {
-		public string Keyword => "add";
-		public OperationHelp Help => _help;
+	public string Keyword => "add";
+	public OperationHelp Help => _help;
 
-		private static OperationHelp _help = new OperationHelp(
-			name: nameof(Addition),
-			description: $"Calculates the sum of two {nameof(TimeCode)} values.",
-			usage: "ADD [timecode a] [timecode b]",
-			remarks: "instead of being treated as a timestamp, [timecode b] is treated as an amount of time elapsed since [timecode a]."
-		);
+	internal static OperationHelp _help = new OperationHelp(
+		name: nameof(Addition)
+		, description: $"Calculates the sum of two {nameof(TimeCode)} values."
+		, usage: "ADD [timecode a] [timecode b]"
+		, remarks: "Instead of being treated as a timestamp, [timecode b] is treated as an amount of time elapsed since [timecode a]."
+	);
 
 	public OperationStatus Action(Arena arena, IList<string> args)
 	{
