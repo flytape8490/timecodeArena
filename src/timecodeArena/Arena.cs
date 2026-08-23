@@ -24,7 +24,6 @@ internal class Arena
 			string input = Console.ReadLine()!.Trim();
 
 			if (string.IsNullOrWhiteSpace(input)) { continue; }
-			else if (input.CaselessEquals("exit")) { break; }
 
 			string[] tokens = input.Split(' ');
 
@@ -33,21 +32,10 @@ internal class Arena
 
 			OperationStatus status = OperationStatus.ValidResult();
 
-			if (keyword.CaselessEquals("list"))
+			if (Operations.ContainsKey(keyword))
 			{
-				ListCommands();
-			}
-
-			else if (Operations.ContainsKey(keyword))
-			{
-				if (args.Count() == 0)
-				{
-					Operations[keyword].Help.Show();
-				}
-				else
-				{
-					status = Operations[keyword].Action(this, args);
-				}
+				Console.WriteLine();
+				status = Operations[keyword].Action(this, args);
 			}
 
 			else if (Variables.ContainsKey(keyword))
