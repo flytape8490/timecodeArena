@@ -9,6 +9,8 @@ internal class Arena
 	internal Dictionary<string, TimeCode> Variables;
 	internal Dictionary<string, IOperation> Operations;
 	
+	private bool _IsRunning = true;
+	
 	internal Arena(Dictionary<string, IOperation> operations)
 	{
 		 Variables = new Dictionary<string, TimeCode>(StringComparer.OrdinalIgnoreCase);
@@ -18,13 +20,13 @@ internal class Arena
 	internal void Run()
 	{
 		Console.WriteLine("TimeCode Arena");
-		while (true)
+		
+		while (_IsRunning)
 		{
 			Console.Write("> ");
 			string input = Console.ReadLine()!.Trim();
 
 			if (string.IsNullOrWhiteSpace(input)) { continue; }
-			else if (input.CaselessEquals("exit")) { break; }
 
 			string[] tokens = input.Split(' ');
 
@@ -33,21 +35,10 @@ internal class Arena
 
 			OperationStatus status = OperationStatus.ValidResult();
 
-			if (keyword.CaselessEquals("list"))
+			if (Operations.ContainsKey(keyword))
 			{
-				ListCommands();
-			}
-
-			else if (Operations.ContainsKey(keyword))
-			{
-				if (args.Count() == 0)
-				{
-					Operations[keyword].Help.Show();
-				}
-				else
-				{
-					status = Operations[keyword].Action(this, args);
-				}
+				Console.WriteLine();
+				status = Operations[keyword].Action(this, args);
 			}
 
 			else if (Variables.ContainsKey(keyword))
@@ -64,14 +55,12 @@ internal class Arena
 		}
 	}
 
-	private void ListCommands()
+	internal void ListCommands()
 	{
 		foreach (string keyword in Operations.Keys.OrderBy(o => o))
 		{
 			Console.WriteLine($"* {keyword}".ToUpper());
 		}
-
-		Console.WriteLine("\n* EXIT");
 	}
 
 	private static void HandleStatus(OperationStatus opStat)
@@ -99,5 +88,10 @@ internal class Arena
 		}
 
 		Console.WriteLine();
+	}
+
+	internal void Shutdown()
+	{
+		_IsRunning = false;
 	}
 }
