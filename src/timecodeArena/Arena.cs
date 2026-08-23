@@ -55,7 +55,7 @@ internal class Arena
 		}
 	}
 
-	private void ListCommands()
+	internal void ListCommands()
 	{
 		foreach (string keyword in Operations.Keys.OrderBy(o => o))
 		{
