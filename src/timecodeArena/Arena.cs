@@ -17,6 +17,25 @@ internal class Arena
 		 Operations = operations;
 	}
 
+	/// <summary>Determines if a string is an assigned identifier or if it's a <see cref="TimeCode"/> literal.</summary>
+	internal OperationStatus GetTimeCodeOrVariable(string code, out TimeCode? timeCode)
+	{
+		if (TimeCode.TryParse(code, out timeCode) == false)
+		{
+			if (Variables.ContainsKey(code))
+			{
+				timeCode = Variables[code];
+			}
+			else
+			{
+				return OperationStatus.InvalidResult($"Not a valid time code or identifier doesn't exist: {code}");
+			}
+		}
+
+		return OperationStatus.ValidResult();
+	}
+
+	/// <summary>The primary execution loop.</summary>
 	internal void Run()
 	{
 		while (_IsRunning)
@@ -53,6 +72,7 @@ internal class Arena
 		}
 	}
 
+	/// <summary>Lists all loaded operation keywords.</summary>
 	internal void ListCommands()
 	{
 		foreach (string keyword in Operations.Keys.OrderBy(o => o))

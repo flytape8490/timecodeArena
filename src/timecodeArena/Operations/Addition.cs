@@ -20,10 +20,10 @@ internal class Addition : IOperation
 		OperationStatus status = ValidateArgs(args);
 		if (status == false) { return status; }
 
-		status = Helpers.GetTimeCodeOrVariable(arena, args[0], out TimeCode code_a);
+		status = arena.GetTimeCodeOrVariable(args[0], out TimeCode code_a);
 		if (status == false) { return status; }
 
-		status = Helpers.GetTimeCodeOrVariable(arena, args[1], out TimeCode code_b);
+		status = arena.GetTimeCodeOrVariable(args[1], out TimeCode code_b);
 		if (status == false) { return status; }
 
 		int frame_sum = code_a.TotalFrames + code_b.TotalFrames;
