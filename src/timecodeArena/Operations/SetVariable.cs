@@ -54,7 +54,6 @@ internal class SetVariable : IOperation
 			arena.Variables.Add(identifier, time_code);
 		}
 
-
 		return status;
 	}
 

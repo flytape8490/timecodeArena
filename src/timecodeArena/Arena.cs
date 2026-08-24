@@ -85,9 +85,13 @@ internal class Arena
 	{
 		if (opStat.IsSuccess) { return; }
 
-		if (opStat.Cause != null)
+		if (opStat.HasCause)
 		{
 			Console.WriteLine($"Operation failed - {opStat.Cause}");
+			if (opStat.HasException)
+			{
+				Console.WriteLine($"Exception:\n{opStat.Exception}");
+			}
 		}
 
 		else if (opStat.HasException)
@@ -100,7 +104,7 @@ internal class Arena
 			Console.WriteLine("Operation failed - no reason given.");
 		}
 
-		if (opStat.Resolution != null)
+		if (opStat.HasResolution)
 		{
 			Console.WriteLine($"Suggested resolution: {opStat.Resolution}");
 		}
