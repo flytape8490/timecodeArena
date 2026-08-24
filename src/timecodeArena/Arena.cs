@@ -19,8 +19,6 @@ internal class Arena
 
 	internal void Run()
 	{
-		Console.WriteLine("TimeCode Arena");
-		
 		while (_IsRunning)
 		{
 			Console.Write("> ");
