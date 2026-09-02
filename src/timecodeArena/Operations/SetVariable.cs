@@ -7,19 +7,21 @@ namespace timecodeArena.Operations;
 internal class SetVariable : IOperation
 {
 	public string Keyword => "set";
-	public OperationHelp Help => _help;
 
+	private static string _identifierPattern = @"^[A-Z_][A-Z0-9_]*$";
+	private static Regex _identifierValidation = new Regex(_identifierPattern, RegexOptions.IgnoreCase);
+	
 	// prevent a new help object from being generated each time Help is accessed
+	
+	public OperationHelp Help => _help;
 	private static OperationHelp _help = new OperationHelp(
 		name: nameof(SetVariable)
 		, description: $"Sets a variable to a particular {nameof(TimeCode)} value."
 		, usage: $"SET [identifier] [timecode]"
-		, remarks: $"An identifier must match the regex {_identifierPattern}"
+		, remarks: $"An identifier must match the regex '{_identifierPattern}'"
 		);
 
 
-	private static string _identifierPattern = @"^[A-Z_][A-Z0-9_]*$";
-	private static Regex _identifierValidation = new Regex(_identifierPattern, RegexOptions.IgnoreCase);
 
 	public OperationStatus Action(Arena arena, IList<string> args)
 	{

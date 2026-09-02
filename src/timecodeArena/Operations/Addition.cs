@@ -6,8 +6,8 @@ namespace timecodeArena.Operations;
 internal class Addition : IOperation
 {
 	public string Keyword => "add";
-	public OperationHelp Help => _help;
 
+	public OperationHelp Help => _help;
 	internal static OperationHelp _help = new OperationHelp(
 		name: nameof(Addition)
 		, description: $"Calculates the sum of two {nameof(TimeCode)} values."

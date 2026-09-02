@@ -6,8 +6,8 @@ namespace timecodeArena.Operations;
 internal class Difference : IOperation
 {
 	public string Keyword => "delta";
-	public OperationHelp Help => _help;
 
+	public OperationHelp Help => _help;
 	internal static OperationHelp _help = new OperationHelp(
 		name: nameof(Difference)
 		, description: $"Calculates the difference between two {nameof(TimeCode)} values."
