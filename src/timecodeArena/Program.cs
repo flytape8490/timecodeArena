@@ -16,6 +16,9 @@ internal static class Program
 		
 		Dictionary<string, IOperation> operations = OperationLoader();
 		
+		Console.WriteLine("TimeCode Arena");
+		Console.WriteLine("Enter LIST to view available arguments.");
+
 		Arena arena = new Arena(operations);
 		
 		arena.Run();
@@ -45,7 +48,6 @@ internal static class Program
 		Assembly assembly = Assembly.GetExecutingAssembly();
 
 		// todo: decompose this linq so that we can check for and error on duplicate keywords
-		// todo: prevent keywords being "help" and "list"												
 
 		Dictionary<string, IOperation> operations = assembly.GetTypes()
 															.Where(t => typeof(IOperation).IsAssignableFrom(t)

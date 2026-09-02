@@ -6,8 +6,8 @@ namespace timecodeArena.Operations;
 internal class CommandHelp : IOperation
 {
 	public string Keyword => "help";
-	public OperationHelp Help => _help;
 
+	public OperationHelp Help => _help;
 	internal static OperationHelp _help = new OperationHelp(
 		name: nameof(CommandHelp)
 		, description: "Shows the usage details for a given command."

@@ -6,8 +6,8 @@ namespace timecodeArena.Operations;
 internal class Exit : IOperation
 {
 	public string Keyword => "exit";
-	public OperationHelp Help => _help;
 
+	public OperationHelp Help => _help;
 	private static OperationHelp _help = new OperationHelp(
 		name: nameof(Exit)
 		, description: "Exits the application."
