@@ -12,7 +12,10 @@ public class OperationStatus
     public string? Cause { get; }
     public string? Resolution { get; }
     
+    public bool HasCause => Cause != null;
     public bool HasException => Exception != null;
+    public bool HasResolution => Resolution != null;
+
 
     // Changed from private to protected so OperationStatus<T> can inherit it
     protected OperationStatus(bool isSuccess, string? cause, string? resolution, Exception? exception)
