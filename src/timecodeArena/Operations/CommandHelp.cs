@@ -8,7 +8,7 @@ internal class CommandHelp : IOperation
 	public string Keyword => "help";
 
 	public OperationHelp Help => _help;
-	internal static OperationHelp _help = new OperationHelp(
+	private static readonly OperationHelp _help = new OperationHelp(
 		name: nameof(CommandHelp)
 		, description: "Shows the usage details for a given command."
 		, usage: "HELP [command name]" 

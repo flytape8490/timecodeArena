@@ -14,11 +14,11 @@ internal class SetVariable : IOperation
 	// prevent a new help object from being generated each time Help is accessed
 	
 	public OperationHelp Help => _help;
-	private static OperationHelp _help = new OperationHelp(
+	private static readonly OperationHelp _help = new OperationHelp(
 		name: nameof(SetVariable)
 		, description: $"Sets a variable to a particular {nameof(TimeCode)} value."
 		, usage: $"SET [identifier] [timecode]"
-		, remarks: $"An identifier must match the regex '{_identifierPattern}'"
+		, remarks: $"An identifier must match the regex \"{_identifierPattern}\""
 		);
 
 
