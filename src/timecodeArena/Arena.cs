@@ -9,6 +9,7 @@ internal class Arena
 	internal Dictionary<string, TimeCode> Variables;
 	internal Dictionary<string, IOperation> Operations;
 	
+	// todo: this should be _isRunning - the leading i must be lowercase to match your own styleguide
 	private bool _IsRunning = true;
 	
 	internal Arena(Dictionary<string, IOperation> operations)
@@ -45,8 +46,10 @@ internal class Arena
 
 			if (string.IsNullOrWhiteSpace(input)) { continue; }
 
+			// todo: need to make this ignore blanks
 			string[] tokens = input.Split(' ');
 
+			// todo: consider, does this toupper need to be here?
 			string keyword = tokens[0].ToUpper();
 			string[] args = tokens.Skip(1).ToArray();
 

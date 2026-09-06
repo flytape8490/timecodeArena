@@ -3,10 +3,13 @@
   <!-- Global Properties -->
   <PropertyGroup>
     <ImplicitUsings>disable</ImplicitUsings>
-    <LangVersion>10.0</LangVersion>
-    <Nullable>enable</Nullable>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net10.0</TargetFramework>
+    <!-- todo: langversion isn't needed. Target framework auto defaults to a 
+         particular langversion, which in the case of net10 is c#14. So you're
+         really limiting yourself here. -->
+    <LangVersion>10.0</LangVersion>
+    <OutputType>Exe</OutputType>
+    <Nullable>enable</Nullable>
 
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>

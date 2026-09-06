@@ -31,26 +31,31 @@ internal class SetVariable : IOperation
 		string identifier = args[0];
 		bool tc_parsable = TimeCode.TryParse(args[1], out TimeCode time_code);
 
+		// ensure there's no collisions between the variable and operation identifier namespaces
 		if (arena.Operations.ContainsKey(identifier))
 		{
 			status = OperationStatus.InvalidResult($"Variable name can not match an operation keyword: {identifier}");
 		}
 
+		// complain if the variable identifier is not in the correct format
 		else if (_identifierValidation.IsMatch(identifier) == false)
 		{
 			status = OperationStatus.InvalidResult($"Variable name is not in correct format: {identifier} does not match \"{_identifierPattern}\"");
 		}
 
+		// complain if the timecode is not in the correct format
 		else if (tc_parsable == false)
 		{
 			status = OperationStatus.InvalidResult($"Could not parse \"{args[1]}\" as a {nameof(TimeCode)}");
 		}
 
+		// if the variable already exists, update the value
 		else if (arena.Variables.ContainsKey(identifier))
 		{
 			arena.Variables[identifier] = time_code;
 		}
 
+		// otherwise, add the value
 		else
 		{
 			arena.Variables.Add(identifier, time_code);
