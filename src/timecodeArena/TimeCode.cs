@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace timecodeArena;
 
+// todo: summary "Represents an unsigned number of frames."
 internal class TimeCode
 {
     internal int Hours { get; private set; }

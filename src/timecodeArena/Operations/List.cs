@@ -8,7 +8,7 @@ internal class List : IOperation
 	public string Keyword => "list";
 
 	public OperationHelp Help => _help;
-	private static OperationHelp _help = new OperationHelp(
+	private static readonly OperationHelp _help = new OperationHelp(
 		name: nameof(List)
 		, description: "Lists all command available to run."
 		, usage: "LIST"

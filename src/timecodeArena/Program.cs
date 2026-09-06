@@ -38,6 +38,7 @@ internal static class Program
 
 		if (fps_index != -1)
 		{
+			// todo: there's an off-by-one error here?
 			if (fps_index > args.Length) { throw new Exception(); }
 			else { FPS = int.Parse(args[fps_index]); }
 		}
